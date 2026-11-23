@@ -85,6 +85,7 @@ nav{display:flex;gap:6px;margin-left:auto}nav a{padding:8px 14px;border-radius:9
 .perks{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.perks span{padding:8px 16px;border:3px solid var(--ink);border-radius:999px;background:var(--sky);font:600 14px var(--h)}
 .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
 .note{padding:22px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);font-size:16px}.note:nth-child(1){background:var(--yellow);transform:rotate(-2deg)}.note:nth-child(2){background:var(--pink);transform:rotate(1.5deg)}.note:nth-child(3){background:var(--matcha);transform:rotate(-1deg)}.note b{display:block;margin-top:12px;font:700 15px var(--h)}
+.founders{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin-top:42px}.founder{padding:12px 12px 14px;border:3px solid var(--ink);border-radius:16px;background:linear-gradient(145deg,#c9915d,#9e6538);box-shadow:5px 6px 0 var(--ink);text-align:center;transform:rotate(var(--tilt));}.founder:nth-child(even){--tilt:1.5deg}.founder:nth-child(odd){--tilt:-1.5deg}.founder img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border:3px solid #f4d39e;border-radius:10px;background:#fff}.founder h3{margin:10px 0 3px;color:#fff8e8;font-size:18px;text-shadow:1px 2px 0 #6e4025}.founder p{margin:0;color:#fff0c8;font:700 11px var(--b);letter-spacing:1.5px}
 .visit{display:grid;grid-template-columns:1fr 1fr;gap:26px}.vin{padding:28px}
 .hours{width:100%;margin:14px 0;border-collapse:collapse}.hours td{padding:9px 0;border-bottom:2px dashed #e6cfc6}.hours td:last-child{text-align:right;font-weight:700}
 .field{display:grid;gap:6px;margin-bottom:12px;font:600 14px var(--h)}.field input,.field select{height:48px;padding:0 14px;border:3px solid var(--ink);border-radius:14px;background:#fffaf5}
@@ -99,13 +100,15 @@ dialog{width:min(460px,calc(100% - 28px));max-height:88vh;padding:26px;border:3p
 @media(max-width:900px){.burger{display:block;margin-left:auto}nav{position:fixed;top:71px;left:0;right:0;flex-direction:column;gap:0;margin:0;padding:10px 20px 20px;background:var(--cream);border-bottom:3px solid var(--ink);transform:translateY(-130%);transition:.25s;z-index:-1}body.open nav{transform:none}nav a{padding:16px 6px;border-bottom:2px dashed #e6cfc6;border-radius:0;font-size:20px}.hero,.sin,.visit{grid-template-columns:1fr}.scene{max-width:480px;margin:20px auto 0}.notes{grid-template-columns:1fr}.note{transform:none!important}}
 @media(max-width:640px){.wrap{width:calc(100% - 28px)}.section{padding-block:48px}.masonry{columns:2;column-gap:12px}.pin{margin-bottom:12px;border-radius:18px}.pin .art{height:calc(var(--h,200px)*.7)}.pin .info{padding:10px}.pin h3{font-size:17px}.pin p{display:none}.pin .bt{flex-direction:column;align-items:stretch}.add{width:100%}.vibe .big{font-size:36px}.vibe b{font-size:17px}.quote{font-size:17px;padding:14px}.fr{grid-template-columns:1fr}.hero .btn{flex:1 1 100%}.sin{padding:22px}.fl{--r:8px}.story,.visit>.fl{--r:10px}.cartbtn span{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.petal{display:none}.cloud:nth-child(1){left:0%}.cloud:nth-child(2){left:13%}.cloud:nth-child(3){left:26%}.cloud:nth-child(4){left:39%}.cloud:nth-child(5){left:52%}.cloud:nth-child(6){left:65%}.cloud:nth-child(7){left:78%}.cloud:nth-child(8){left:88%}.heart-float{top:var(--heart-top);opacity:.18}}
+@media(max-width:900px){.founders{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.founders{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.founder{padding:8px 8px 11px}.founder h3{font-size:15px}.founder p{font-size:9px}}
 body.page-menu main>:not(#menu),body.page-vibes main>:not(#vibes),body.page-story main>:not(#story),body.page-visit main>:not(#visit){display:none}
 </style>
 </head>
 <body class="page-story">
 <header><div class="wrap nav">
   <a class="logo" href="index.html#home"><img src="images/kumo-cafe-logo.jpg" alt=""><span>Kumo Café<small>くもカフェ</small></span></a>
-  <nav id="nav"><a href="index.html">Home</a><a href="menu.html#menu">Menu</a><a href="vibes.html#vibes">Mood board</a><a href="story.html#story">Our story</a><a href="visit.html#visit">Visit</a></nav>
+  <nav id="nav"><a href="index.html">Home</a><a href="menu.html#menu">Menu</a><a href="vibes.html#vibes">Mood board</a><a href="story.html#story">Our story</a><a href="visit.html#visit">Visit</a><a href="transactions.html">Transactions</a></nav>
   <button class="cartbtn" id="cartBtn" type="button" aria-label="Open your order">🧋<span> Order</span><b id="cnt">0</b></button>
   <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
 </div></header>
@@ -178,6 +181,13 @@ body.page-menu main>:not(#menu),body.page-vibes main>:not(#vibes),body.page-stor
     <div class="note">“Cutest café ever. The mochi donuts are so soft and the staff are so sweet.”<b>— Daniel ☁</b></div>
     <div class="note">“My favorite place to study. Matcha cloud + lo-fi = perfect focus.”<b>— Sharm ★</b></div>
   </div>
+  <div class="founders" aria-label="Kumo Café founders">
+    <article class="founder"><img src="images/founders/bornilla.jpg" alt="Bornilla"><h3>Bornilla</h3><p>FOUNDER</p></article>
+    <article class="founder"><img src="images/founders/genenis.jpg" alt="Genenis"><h3>Genenis</h3><p>FOUNDER</p></article>
+    <article class="founder"><img src="images/founders/gaerlan.jpg" alt="Gaerlan"><h3>Gaerlan</h3><p>FOUNDER</p></article>
+    <article class="founder"><img src="images/founders/baal.jpg" alt="Baal"><h3>Baal</h3><p>FOUNDER</p></article>
+    <article class="founder"><img src="images/founders/gerdan.jpg" alt="Gerdan"><h3>Gerdan</h3><p>FOUNDER</p></article>
+  </div>
   <p style="margin-top:14px;font-size:13px;color:#9a766b">Sample reviews and story text — replace with your own.</p>
 </section>
 
@@ -197,7 +207,7 @@ body.page-menu main>:not(#menu),body.page-vibes main>:not(#vibes),body.page-stor
 
 <footer><b>Kumo Café ☁ くもカフェ</b><p>Made with love, sakura and a lot of coffee. © Kumo Café · Demo site</p></footer>
 
-<dialog id="dlg"><h2 style="font-size:32px">Your order 🧋</h2><div id="lines"></div><div class="total"><span>Total</span><span id="tot">₱0</span></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn alt" id="closeD" type="button">Keep browsing</button><button class="btn" id="place" type="button">Place order</button></div><p style="font-size:12px;color:#9a766b;margin-bottom:0">Demo order — nothing is charged.</p></dialog>
+<dialog id="dlg"><h2 style="font-size:32px">Your order 🧋</h2><div id="lines"></div><div class="total"><span>Total</span><span id="tot">₱0</span></div><div class="fr"><label class="field">Name<input id="customerName" type="text" placeholder="Your name" required></label><label class="field">Gmail<input id="customerEmail" type="email" placeholder="you@gmail.com" required></label></div><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn alt" id="closeD" type="button">Keep browsing</button><button class="btn" id="place" type="button">Place order</button></div><p style="font-size:12px;color:#9a766b;margin-bottom:0">Demo order — nothing is charged.</p></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -244,7 +254,7 @@ document.addEventListener("click",e=>{
  const r=e.target.closest("[data-r]");if(r){delete order[r.dataset.r];renderOrder()}});
 $("#cartBtn").onclick=()=>{renderOrder();$("#dlg").showModal()};$("#closeD").onclick=()=>$("#dlg").close();
 $("#dlg").addEventListener("click",e=>{if(e.target===$("#dlg"))$("#dlg").close()});
-$("#place").onclick=()=>{if(!Object.keys(order).length)return toast("Add something first ✿");order={};renderOrder();$("#dlg").close();toast("Order placed! See you soon ♡ (demo)")};
+$("#place").onclick=()=>{if(!Object.keys(order).length)return toast("Add something first ✿");const name=$("#customerName").value.trim(),email=$("#customerEmail").value.trim();if(!name)return toast("Enter your name ✿");if(!email)return toast("Enter your Gmail ✿");let total=0;const items=Object.keys(order).map(i=>{const m=MENU[i],quantity=order[i];total+=m[2]*quantity;return `${m[0]} × ${quantity}`});const transaction={id:Date.now(),name,email,order:items.join(", "),total,date:new Date().toLocaleString()};const history=JSON.parse(localStorage.getItem("kumoTransactions")||"[]");history.unshift(transaction);localStorage.setItem("kumoTransactions",JSON.stringify(history));$("#customerName").value="";$("#customerEmail").value="";order={};renderOrder();$("#dlg").close();toast("Order placed! See you soon ♡ (demo)")};
 $("#rsv").onsubmit=e=>{e.preventDefault();e.target.reset();toast("Seat reserved! ✿ (demo — nothing is sent)")};
 $("#burger").onclick=()=>{const o=document.body.classList.toggle("open");$("#burger").setAttribute("aria-expanded",o)};
 $("#nav").onclick=e=>{if(e.target.closest("a"))document.body.classList.remove("open")};
